@@ -1,3 +1,5 @@
+using System.Data;
+
 public static class ArraysTester {
     /// <summary>
     /// Entry point for the tests
@@ -39,7 +41,18 @@ public static class ArraysTester {
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return new double[0]; // replace this return statement with your own
+        // My first thought is to have at least one loop. That loop will be used to iterate through each number
+        // up to the length variable. I will then multiply the number by the current index and store that value.
+        // I will then return the array of values. However, I am wondering if there is a faster way to do this
+        // other than the Big O(n) time complexity that this would have. 
+
+        double[] multiples = new double[length];
+        for (int i = 0; i < length; i++)
+        {
+            // I will multiply the number by the current index and store that value
+            multiples[i] = (double)number * (i + 1);  
+        }
+        return multiples; // replace this return statement with your own
     }
     
     /// <summary>
@@ -57,5 +70,24 @@ public static class ArraysTester {
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
+        // my first thought on this one is to split the list into two parts. I could use the amount variable
+        // to split from the the end of the list. For example, if the amount is 3, could split at -{amount} or -3.
+        // I could then place that list in front of the other list and then return the full list. 
+
+        if (amount < 1 || amount > data.Count)
+        {
+            return;
+        }
+
+        // Split the list into two parts
+        List<int> firstPart = data.GetRange(data.Count - amount, amount);
+        List<int> secondPart = data.GetRange(0, data.Count - amount);
+
+        data.Clear(); // Clear the list
+        data.AddRange(firstPart);
+        data.AddRange(secondPart);
+
+
+        
     }
 }

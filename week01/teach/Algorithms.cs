@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics;
 
 public static class Algorithms {
+
+    
     public static void Run() {
         Console.WriteLine("{0,15}{1,15}{2,15}{3,15}{4,15}{5,15}{6,15}", "n", "alg1-count", "alg2-count", "alg3-count",
             "alg1-time", "alg2-time", "alg3-time");
