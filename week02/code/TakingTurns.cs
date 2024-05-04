@@ -15,7 +15,8 @@
         // Console.WriteLine(players);    // This can be un-commented out for debug help
         while (players.Length > 0)
             players.GetNextPerson();
-        // Defect(s) Found: 
+        // Defect(s) Found: the Enqueue was adding to the beginning of the queue instead of the end. 
+        // It was previously _queue.Insert(0, person), and I changed it to _queue.Add(person) to add to the end.
 
         Console.WriteLine("---------");
 
@@ -56,7 +57,8 @@
             players.GetNextPerson();
             // Console.WriteLine(players);
         }
-        // Defect(s) Found: 
+        // Defect(s) Found: Tim was not being added back to the queue after being displayed.
+        // I changed the if statement to check if the person.Turns is less than or equal to 0, then add the person back to the queue.
 
         Console.WriteLine("---------");
 
