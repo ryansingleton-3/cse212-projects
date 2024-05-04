@@ -47,3 +47,7 @@
         return stack.Pop();
     }
 }
+
+// Determine the result of the function if the following inputs were provided:
+// 5 3 7 + *  ------ 531070
+// 6 2 + 5 3 - / ------ 628532

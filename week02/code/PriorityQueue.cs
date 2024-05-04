@@ -8,6 +8,8 @@
     /// </summary>
     /// <param name="value">The value</param>
     /// <param name="priority">The priority</param>
+    /// 
+    
     public void Enqueue(string value, int priority) {
         var newNode = new PriorityItem(value, priority);
         _queue.Add(newNode);
@@ -22,18 +24,23 @@
 
         // Find the index of the item with the highest priority to remove
         var highPriorityIndex = 0;
-        for (int index = 1; index < _queue.Count - 1; index++) {
-            if (_queue[index].Priority >= _queue[highPriorityIndex].Priority)
+        for (int index = 1; index < _queue.Count; index++) {
+            if (_queue[index].Priority > _queue[highPriorityIndex].Priority)
                 highPriorityIndex = index;
         }
 
         // Remove and return the item with the highest priority
         var value = _queue[highPriorityIndex].Value;
+        _queue.RemoveAt(highPriorityIndex); // This was added to actually remove the item from the queue
         return value;
     }
 
     public override string ToString() {
         return $"[{string.Join(", ", _queue)}]";
+    }
+
+    public int GetLength () {
+        return _queue.Count;
     }
 }
 
