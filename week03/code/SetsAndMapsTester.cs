@@ -115,8 +115,10 @@ public static class SetsAndMapsTester {
         var set = new HashSet<string>(words);
         foreach (var word in words) {
             string reversedString = new string(word.Reverse().ToArray());
+            if (word == reversedString) continue;
             if (set.Contains(reversedString) && word.Length == 2) {
                 Console.WriteLine($"{word} & {reversedString}");
+                set.Remove(word);
             }
         }
     }
@@ -139,7 +141,12 @@ public static class SetsAndMapsTester {
         var degrees = new Dictionary<string, int>();
         foreach (var line in File.ReadLines(filename)) {
             var fields = line.Split(",");
-            // Todo Problem 2 - ADD YOUR CODE HERE
+            var degree = fields[3].Trim();
+            if (degrees.ContainsKey(degree)) {
+                degrees[degree]++;
+            } else {
+                degrees[degree] = 1;
+            }
         }
 
         return degrees;
@@ -166,6 +173,48 @@ public static class SetsAndMapsTester {
     /// #############
     private static bool IsAnagram(string word1, string word2) {
         // Todo Problem 3 - ADD YOUR CODE HERE
+        word1 = word1.Replace(" ", "");
+        word2 = word2.Replace(" ", "");
+        
+        word1 = word1.ToLower();
+        word2 = word2.ToLower();
+
+        if (word1 == word2) return false;
+
+        var dict = new Dictionary<char, int>();
+        var dict2 = new Dictionary<char, int>();
+
+
+        if (word1.Length != word2.Length) return false;
+
+        foreach (var letter in word1){
+            if (dict.ContainsKey(letter)) {
+                dict[letter]++;
+            } else {
+                dict[letter] = 1;
+            }
+        }
+
+        foreach (var letter in word2){
+            if (dict2.ContainsKey(letter)) {
+                dict2[letter]++;
+            } else {
+                dict2[letter] = 1;
+            }
+        }
+
+        if (dict.Count != dict2.Count) return false;
+
+        if (dict.Count == dict2.Count) {
+            foreach (var key in dict.Keys) {
+                if (!dict2.ContainsKey(key) || dict[key] != dict2[key]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+
         return false;
     }
 
