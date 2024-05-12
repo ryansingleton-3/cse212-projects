@@ -1,0 +1,52 @@
+{
+    "type": "FeatureCollection",
+    "metadata": {
+        "generated": 1715460298000,
+        "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson",
+        "title": "USGS All Earthquakes, Past Day",
+        "status": 200,
+        "api": "1.10.3",
+        "count": 163
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "mag": 1.21,
+                "place": "3 km S of Lytle Creek, CA",
+                "time": 1715459753770,
+                "updated": 1715460189960,
+                "tz": null,
+                "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci40745888",
+                "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/ci40745888.geojson",
+                "felt": null,
+                "cdi": null,
+                "mmi": null,
+                "alert": null,
+                "status": "automatic",
+                "tsunami": 0,
+                "sig": 23,
+                "net": "ci",
+                "code": "40745888",
+                "ids": ",ci40745888,",
+                "sources": ",ci,",
+                "types": ",nearby-cities,origin,phase-data,scitech-link,",
+                "nst": 41,
+                "dmin": 0.01942,
+                "rms": 0.19,
+                "gap": 44,
+                "magType": "ml",
+                "type": "earthquake",
+                "title": "M 1.2 - 3 km S of Lytle Creek, CA"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -117.5056667,
+                    34.2313333,
+                    11.83
+                ]
+            },
+            "id": "ci40745888"
+        }
+    }
